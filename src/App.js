@@ -14,6 +14,8 @@ import EUseStateArray from './components/7states_and_effects/EUseStateArray'
 import GUseEffectDependency from './components/7states_and_effects/GUseEffectDependency' */
 import Login from './components/8forms/Login'
 import Logout from './components/8forms/Logout'
+import EnvironementComponent from './components/9EnvironementComponent'
+import GetAPICall from './components/10ApiIntegration/GetAPICall'
 
 function App() {
   const [isLoggedIn, loginSetter] = useState(false)
@@ -27,9 +29,17 @@ function App() {
       <div className="main-content" >
         {
           (isLoggedIn) ?
-            (<h2>Hello User||  <Logout updateLoginHandler={loginSetter} /></h2>)
+            (
+              <>
+                <h2>Hello User||  <Logout updateLoginHandler={loginSetter} /></h2>
+                <EnvironementComponent />
+                <GetAPICall />
+              </>
+            )
             :
-            (<Login updateLoginHandler={loginSetter} />)
+            (
+              <Login updateLoginHandler={loginSetter} />
+            )
         }
       </div>
     </div >
